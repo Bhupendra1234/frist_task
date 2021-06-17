@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Form, message, Button } from 'antd';
 import Basic from './Basic';
 import { Todoadd } from '../../redux/actions'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 const AddTodo = () => {
@@ -20,28 +20,17 @@ const AddTodo = () => {
     }
 
 
-
-    const lists = useSelector(state => state.todo.Lists)
-    console.log(lists)
-
- 
-           
-
-
-
     const onFinish = () => {
         setSubmitLoading(true)
         form.validateFields().then(values => {
             setTimeout(() => {
                 setSubmitLoading(false)
-                console.log(values)
                     CasinoAdd(values)
                     message.success(`Created ${values.name} to Todo list`);
                     form.resetFields()
             }, 1500);
         }).catch(info => {
             setSubmitLoading(false)
-            console.log('info', info)
             message.error('Please enter all required field ');
         });
     };
