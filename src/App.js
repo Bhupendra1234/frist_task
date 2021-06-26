@@ -1,8 +1,8 @@
 import React from 'react'
-import List from './Todolist'
+import HealthCare from './HealthCare'
 function App() {
   return (
-    <List/>
+    <HealthCare/>
   );
 }
 
